@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body{
+			background-size:cover;
+		}
+
+		@font-face{
+			font-family:"halloween";
+			src:url(whoAsksSatan.ttf);
+		}
+
+		h1{
+			font-size:50px;
+			font-family:"halloween";
+		}
+	</style>
+</head>
+<body>
+
+	<!-- <audio id="" scr=""></audio> -->
+
+
+	<center><h1 id='text'>Please Don't Press</h1></center>
+
+	<script type="text/javascript">
+
+		let clickNumber = 0;
+
+		document.addEventListener("click", function(){
+			clickNumber = clickNumber+1
+			console.log(clickNumber)
+if (clickNumber == 1)
+{
+			text.innerText ="No seriously don't click"
+
+}
+
+if (clickNumber == 2)
+{
+			text.innerText ="Come on. I'll give you one more chance and if you click I swear..."
+
+}
+
+if (clickNumber == 3)
+{
+			text.innerText ="... I said, DO NOT PRESS!!! I WILL GIVE YOU ONE MORE CHANCE!"
+
+}
+if (clickNumber == 4)
+{
+			text.innerText ="I give up. Just press it I guess."
+
+}if (clickNumber == 5)
+{
+			document.body.style.backgroundImage = "url(pumpkin.png)"
+
+}
+
+		})
+
+	</script>
+</body>
+</html>
