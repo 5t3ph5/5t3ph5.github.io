@@ -3,24 +3,22 @@
 <head>
 	<style type="text/css">
 		body{
-			background-size:cover;
-		}
+			background-size:cover;	
+			}
 
 		@font-face{
 			font-family:"halloween";
-			src:url(whoAsksSatan.ttf);
+			src:url(font.ttf);
 		}
 
 		h1{
-			font-size:50px;
+			font-size:100px;
 			font-family:"halloween";
 		}
 	</style>
 </head>
 <body>
-
-	<!-- <audio id="" scr=""></audio> -->
-
+	<audio  id="scream" src="scream.mp3"></audio>
 
 	<center><h1 id='text'>Please Don't Press</h1></center>
 
@@ -54,7 +52,10 @@ if (clickNumber == 4)
 
 }if (clickNumber == 5)
 {
-			document.body.style.backgroundImage = "url(pumpkin.png)"
+			text.innerText=""
+			document.body.style.backgroundImage = "url(pumpkin.png)";
+			scream.play()
+
 
 }
 
