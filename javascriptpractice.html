@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type = "text/css">
+		.hedgehogs{
+			font-size:40px;
+			display:inline-block;
+			width:100px;
+			height:100px;
+			background-image:url(hedgehog2.jpg);
+			background-size:contain;
+			margin:20px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<center>Hedgehog Clock</center>
+
+<script type="text/javascript">
+
+	let counter = 0;
+	function makeHedgehog(){
+		let hedgehog=document.createElement("div")
+		document.body.appendChild(hedgehog)
+		hedgehog.classList.add('hedgehogs')
+		counter=counter+1
+		hedgehog.innerText=counter
+
+	}
+
+	setInterval(makeHedgehog, 1000)
+	</script>
+
+</body>
+</html>
