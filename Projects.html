@@ -8,15 +8,10 @@
 <style>
 
 	a{
-		font-family: "Cabin Sketch", sans serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size:25px;
-  margin:30px;
+		
   text-decoration: none;
-  color:black;
-	}
-
+  
+}
 	div{
 		width:200px;
 		height:200px;
@@ -24,7 +19,15 @@
 		background-repeat: no-repeat;
 		display:inline-block;
 		position:relative;
+
+		 font-family: "Cabin Sketch", sans serif;
+		 font-weight: 400;
+		 font-style: normal;
+		 font-size:25px;
+		 color:black;
+		 margin:50px;
 	}
+	
 
 	#project1{
 				background-image:url(hammer.png);
@@ -50,40 +53,58 @@
 		background-image:url(jackhammer.png);
 	}
 
+	.text{
+		height:40px;
+		width:100%;
+		position: relative;
+		top:-80px;
+	}
+
 </style>
 
 </head>
 <body>
 
 <a href="day1.html">
-	First Project
+	<div id="project1"> 
+	<div class="text">First Project</div>
+</div> 
 </a>
-<div id="project1">  </div> 
+
 
 <a href="hedgehogcorgi.html">
-	Transitions
+	<div id="project2">
+		<div class="text">Transitions </div></div>
 </a>
-	<div id="project2"> </div> 
+
 
 <a href="animation.html"> 
-	Cool Animation
+	<div id="project3"> 
+	<div class="text">Cool Animation</div> 
+</div>
 </a>
-<div id="project3"> </div>
 
 <a href="javascript1.html"> 
-	Javascript 
+
+<div id="project4">
+<div class='text'>	Javascript 
+</div> </div> 
 </a>
-<div id="project4"> </div> 
 
 <a href="jumpscare.html">
-	Halloweeny Project 
+<div id="project5">
+	<div class="text">
+Halloween </div>
+</div>
 </a>
-<div id="project5"> </div>
 
 <a href="jacascriptpractice.html">
-	Hedgehog Clock
+	<div id="project6">
+	<div class="text">
+	Hedgehog Clock</div>
+	</div>
 </a>
-<div id="project6"> </div>
+
 
 
 </body>
