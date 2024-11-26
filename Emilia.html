@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<style type="text/css">
+		
+		h1{
+			font-size:100px;
+			font-family:"thanksgiving";
+		}
+
+		div{
+			width:200px;
+			height:200px;
+			background-size:cover;
+			background-repeat:no-repeat;
+			border-radius:50%;
+			position:absolute;
+			transition:.10s;
+		}
+
+		#Emilia1{
+			background-image:url(emilia.png);
+			width:500px;
+			height:500px;
+		}
+
+		#Emilia2{
+			background-image:url(emilia2.png);
+		}
+
+		#Emilia3{
+			background-image:url(emilia3.png);
+		}
+
+		#Emilia4{
+			background-image:url(emilia4.png);
+		}
+
+		#Emilia5{
+			background-image:url(emilia5.png);
+		}
+
+
+	</style>
+	<title></title>
+</head>
+<body>
+
+	<center><h1 id='text'>Hi, Emilia!!!</h1></center>
+
+	<div class="emilia" id="Emilia1"></div>
+	<div class="emilia" id="Emilia2"></div>
+	<div class="emilia" id="Emilia3"></div>
+	<div class="emilia" id="Emilia4"></div>
+	<div class="emilia" id="Emilia5"></div>
+
+	<script type="text/javascript">
+
+		function move() {
+			console.log(Math.random())
+
+			let emilia = Array.from(document.getElementsByClassName("emilia"))
+
+			console.log(emilia)
+			emilia.forEach(function(element){
+				element.style.left = Math.random()*1000+ "px";
+				element.style.top = Math.random()*500+ "px";
+
+			})
+				} // end of move function//
+
+		setInterval(move,400)
+
+	</script>
+
+</body>
+</html>
