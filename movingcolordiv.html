@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title></title>
+
+	<style type="text/css">
+		
+		#circlesquare{
+			width:100px;
+			height:100px;
+			position:absolute;
+			border-radius:50%;
+			background-color:palevioletred;
+			transition:2s;
+			left:0px;
+			top:0px;
+	}
+
+	</style>
+
+</head>
+<body>
+
+	<div id="circlesquare"></div>
+
+<script type="text/javascript">
+
+	function move (){
+		let x = Math.random()*800+"px"
+		let y = Math.random()*800+"px"
+			circlesquare.style.left = x
+			circlesquare.style.top = y
+	}
+	
+	function colorchange(){
+		let r = Math.random()*255
+		let g = Math.random()*255
+		let b = Math.random()*255
+
+		circlesquare.style.backgroundColor = "rgb("+r+","+g+","+b+")"
+	}
+
+	setInterval(move, 1000)
+	setInterval(colorchange, 1000)
+
+</script>
+
+
+</body>
+</html>
