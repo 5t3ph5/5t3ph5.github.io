@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<style type="text/css">
+		
+		body{
+			font-size:50px;
+			background-image:url(https://t3.ftcdn.net/jpg/07/81/08/46/360_F_781084651_z8VXCqEM0sWkoZ3o438viQWi6F85fYc6.jpg);
+			background-size:cover;
+			margin:0px;
+			background-repeat:no-repeat;
+		}
+
+/*		#images{
+			width:400px;
+			height:400px;
+			top:400px;
+		}*/
+
+		#text{
+			position: relative;
+			top:300px;
+			color:white;
+		}
+
+	</style>
+	
+</head>
+<body>
+
+
+		<center><div id="text"></div></center>
+
+	
+
+	<script type="text/javascript">
+
+		let list = ["Keep your face always toward the sunshine - and shadows will fall behind you. -Walt Whitman" , "Believe you can and you're halfway there. -Theodore Rosevelt" , "We must let go of the life we planned, so as to accept the one that is waiting for us. -Joseph Campbell"]
+
+		// let images = ["image1.png", "image2.png"]
+
+		document.addEventListener("click", function(){
+			let random = Math.floor(Math.random()*3)
+			// let random2 = Math.floor(Math.random()*1)
+
+			text.innerText = list[random]
+			// text.style.backgroundImage = "url("+images[random2] + ")"
+		})
+
+	</script>
+
+</body>
+</html>
