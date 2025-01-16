@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap" rel="stylesheet">
+
 <style>	
 
 	.box{
 		display: inline-block;
 		border:1px solid black; 
-		width: 400px;
-		height: 400px;
+		width: 430px;
+		height: 430px;
 		margin:4px;
 		background-size:contain;
+
 	}
 
 	#handle{
 		display: inline-block;
 		border:1px solid black; 
-		width: 70px;
-		height: 400px;
-		margin:4px;
+		width: 75px;
+		height: 430px;
+		margin:5px;
 		background-image:url(handle.png);
 		background-size:contain;
 	}
 
 	#scoreboard{
 		font-size:200px;
-		left:50px;
 		position:relative;
+		text-align:center;
+		font-family: "Cabin Sketch", sans-serif;
 	}
 
 	#alertText{
 		font-size:50px;
 		left:50px;
 		position:relative;
+		text-align:center;
+		font-family: "Cabin Sketch", sans-serif;
 	}
 
 </style>
@@ -55,7 +64,7 @@
 
 		let score = 0
 
-		scoreboard.innerText = score
+		scoreboard.innerText = "Your score is:" + score
 
 		console.log(fruits.length)
 
@@ -72,26 +81,26 @@
 			if (random1==random2 && random2==random3){
 				
 				score=score+20
-				scoreboard.innerText = score
+				scoreboard.innerText = "Your score is:" + score
 				alertText.innerText = "YOU WIN!"
 
 			}
 
 			else if (random1==random2){
 				score=score+10
-				scoreboard.innerText = score
+				scoreboard.innerText = "Your score is:" + score
 				alertText.innerText = "2 out of 3 isn't TERRIBLE..."
 			}
 
 			else if (random2==random3){
 				score=score+10
-				scoreboard.innerText = score
+				scoreboard.innerText = "Your score is:" + score
 				alertText.innerText = "2 out of 3 isn't TERRIBLE..."
 			}
 
 			else if (random1==random3){
 				score=score+10
-				scoreboard.innerText = score
+				scoreboard.innerText = "Your score is:" + score
 				alertText.innerText = "2 out of 3 isn't TERRIBLE..."
 			}
 
