@@ -1,0 +1,62 @@
+<!-- MomandMe.GIF -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<style type="text/css">
+
+		@font-face{
+			font-family:"valentinesday";
+			src:url(valentines.otf);
+		}
+
+		h1{
+			font-size:100px;
+			font-family:"valentinesday";
+		}
+		
+		#heart{
+		width:600px;
+		height:600px;
+		top:-20px;
+		background-image:url(heart.png);
+		background-size:contain;
+		position:relative;
+		background-repeat:no-repeat;
+		animation-name:heartbeat;
+		animation-duration:2s;
+		animation-iteration-count:infinite;
+		}
+
+
+		@keyframes heartbeat{
+		0%{
+			width:600px;
+			height:600px;
+		}
+
+		50%{
+			width:675px;
+			height:675px;
+		}
+
+		100%{
+			width:600px;
+			height:600px;
+		}
+	}
+	</style>
+
+</head>
+<body>
+
+	<center><h1>Happy Valentine's Day!</h1></center>
+
+	<center><a href="valentinecard.html">
+		<div id="heart"></div>
+	</a></center>
+
+
+</body>
+</html>
