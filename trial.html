@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    div{
+        display:inline-block;
+        position:absolute;
+        cursor: pointer;
+    }
+    h1{
+        font-size:100px;
+        font-family:;
+        color: #FF1493; /* Deep pink color for the heading */
+    }
+    #yes{
+        width:300px;
+        height:300px;
+        text-align:justify-all;
+        background-color:lightblue;
+        font-size:210px;
+        top:300px;
+        left:300px;
+        text-align:center;
+        transition: transform 0.3s;
+        color: #008000; /* Green color for "yes" */
+    }
+    #yes:hover {
+        transform: scale(1.1);
+    }
+    #no{
+        width:300px;
+        height:300px;
+        text-align:justify-all;
+        background-color:lightblue;
+        font-size:210px;
+        top:300px;
+        left:800px;
+        text-align:center;
+        transition: all 0.2s ease;
+        color: #FF0000; /* Red color for "no" */
+    }
+</style>
+</head>
+<body>
+<center><h1>Will you be my valentine?</h1></center>
+<div id="yes" onclick="celebrate()">yes</div>
+<div id="no" onmouseover="moveNoButton(event)">no</div>
+
+<script>
+    function moveNoButton(event) {
+        const noButton = document.getElementById('no');
+        
+        // Get viewport dimensions
+        const maxX = window.innerWidth - 300; // account for button width
+        const maxY = window.innerHeight - 300; // account for button height
+        
+        // Get current mouse position
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        
+        // Safe distance from mouse (in pixels)
+        const safeDistance = 100;
+        
+        // Generate random position
+        let randomX, randomY;
+        let isSafe = false;
+        
+        // Keep generating random positions until we find one that's safe
+        while (!isSafe) {
+            randomX = Math.floor(Math.random() * maxX);
+            randomY = Math.floor(Math.random() * maxY);
+            
+            // Calculate distance from mouse to new position (center of button)
+            const distance = Math.sqrt(
+                Math.pow(mouseX - (randomX + 150), 2) + 
+                Math.pow(mouseY - (randomY + 150), 2)
+            );
+            
+            // If distance is greater than safe distance, we're good
+            if (distance > safeDistance + 150) { // 150 is half the button width/height
+                isSafe = true;
+            }
+        }
+        
+        // Move the button
+        noButton.style.left = randomX + 'px';
+        noButton.style.top = randomY + 'px';
+    }
+    
+    function celebrate() {
+        alert("Yay! ❤️");
+        // You can add more celebration effects here
+    }
+</script>
+</body>
+</html>

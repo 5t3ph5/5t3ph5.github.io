@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-<style type=text/css>
-
-	#first{
-		width:800px;
-		height:800px;
-		background-image:url(snowman.png);
-		background-size:contain;
-		position:relative;
-		background-repeat:no-repeat;
-	}
-
-
-</style>
-
+    <style type="text/css">
+        #first {
+            width: 800px;
+            height: 800px;
+            background-image: url(snowman.png);
+            background-size: contain;
+            position: relative;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 <body>
-
-	<audio id="music" src="song.mp3"></audio>
-	<center><div id="first"></div></center>
-
-	<script type="text/javascript">
-
-		let lightswitch = true; 
-
-		first.addEventListener("click", function(){
-			if (lightswitch==true){
-				music.play()
-				lightswitch = false
-					console.log(lightswitch)
-			}
-		else if(lightswitch==false){
-			music.pause()
-			lightswitch = true
-			console.log(lightswitch)
-		}
-	})
-
-</script>
-
+    <audio id="music" src="song.mp3"></audio>
+    <center><div id="first"></div></center>
+    <script type="text/javascript">
+        let lightswitch = true;
+        const firstElement = document.getElementById("first");
+        const musicElement = document.getElementById("music");
+        
+        firstElement.addEventListener("click", function() {
+            if (lightswitch == true) {
+                musicElement.play();
+                lightswitch = false;
+                console.log(lightswitch);
+            }
+            else if (lightswitch == false) {
+                musicElement.pause();
+                lightswitch = true;
+                console.log(lightswitch);
+            }
+        });
+    </script>
 </body>
+</html>
