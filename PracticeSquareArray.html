@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<style>
+
+		.squares{
+			width:100px;
+			height:100px;
+			background-color:blue;
+			margin:1px;
+			display:inline-block;
+			color:white;
+			font-size:30px;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<script type="text/javascript">
+		function makeSquare (input){
+			counter=counter+1
+			let thing = document.createElement("div")
+			document.body.appendChild(thing)
+			thing.classList.add("squares")
+			thing.innerText=input
+			thing.id="thingy"+input
+		}
+
+		for (let i=1; i<11; i=i+1){
+			makeSquare(i)
+		}
+
+		thingy5.addEventListener("click")
+
+		://REMEMBER HOW TO DO THIS
+</script>
+
+</body>
+</html>
