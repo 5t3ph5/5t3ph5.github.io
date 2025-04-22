@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+        .letter{
+            width:300px;
+            height:120px;
+            font-size:100px;
+            text-align:center;
+        }
+        .correct {
+            background-color: lightgreen;
+        }
+        .wrong {
+            background-color: rgb(255,40,40);
+        }
+
+    </style>
+</head>
+<body>
+
+        <center><h1 id='text'>Wordle! 5 possible words for now (apple, happy, earth, beach, piano)</h1></center>
+
+    <input class="letter" id="letter1"></input>
+    <button id="submit">submit</button>
+    <script type="text/javascript">
+        // // let letterList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        // let randomIndex = Math.floor(Math.random() * letterList.length);
+        // let randomLetter = letterList[randomIndex];
+
+        let wordList = ["apple", "happy", "earth", "beach", "piano"];
+
+        let randomIndex = Math.floor(Math.random() * wordList.length);
+        let randomWord= wordList[randomIndex];
+        
+        document.getElementById("submit").addEventListener("click", function() {
+            let userInput = document.getElementById("letter1").value.toLowerCase();
+            let inputBox = document.getElementById("letter1");
+            
+            if (userInput === randomWord) {
+                inputBox.classList.add("correct");
+                inputBox.classList.remove("wrong");
+            } else {
+                inputBox.classList.remove("correct");
+                inputBox.classList.add("wrong");
+            }
+        });
+    </script>
+</body>
+</html>
