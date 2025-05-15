@@ -3,13 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Wordle Game</title>
     <style type="text/css">
         .letter{
-            width:300px;
-            height:120px;
-            font-size:100px;
-            text-align:center;
+            width: 80px;
+            height: 80px;
+            font-size: 50px;
+            text-align: center;
+            margin: 5px;
+            text-transform: uppercase;
+        }
+        .letter-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
         }
         .correct {
             background-color: lightgreen;
@@ -17,35 +24,95 @@
         .wrong {
             background-color: rgb(255,40,40);
         }
-
+        .partial {
+            background-color: yellow;
+        }
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #submit {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-
-        <center><h1 id='text'>Wordle! 5 possible words for now (apple, happy, earth, beach, piano)</h1></center>
-
-    <input class="letter" id="letter1"></input>
-    <button id="submit">submit</button>
+    <center><h1 id='text'>Wordle!</h1></center>
+    
+    <div class="letter-container">
+        <input class="letter" id="letter1"></input>
+        <input class="letter" id="letter2"></input>
+        <input class="letter" id="letter3"></input>
+        <input class="letter" id="letter4"></input>
+        <input class="letter" id="letter5"></input>
+    </div>
+    
+    <div class="controls">
+        <button id="submit">Submit Guess</button>
+    </div>
+    
     <script type="text/javascript">
-        // // let letterList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-        // let randomIndex = Math.floor(Math.random() * letterList.length);
-        // let randomLetter = letterList[randomIndex];
-
-        let wordList = ["apple", "happy", "earth", "beach", "piano"];
-
+        let wordList = ["about", "abuse", "actor", "adapt", "admit", "adopt", "adult", "after", "again", "agent", "agree", "ahead", "album", "alive", "allow", "alone", "along", "alter", "amber", "among", "anger", "angle", "angry", "ankle", "apart", "apple", "apply", "apron", "array", "aside", "attic", "awful", "axiom", "azure", "bacon", "badge", "badly", "bagel", "baker", "bally", "balmy", "banal", "banjo", "barge", "baron", "basic", "batch", "bathe", "beach", "beard", "beast", "beech", "beefy", "began", "begin", "being", "belch", "below", "bench", "berry", "berth", "bible", "bingo", "birch", "birth", "black", "blade", "blame", "blast", "blaze", "blend", "blimp", "blitz", "block", "blond", "cabin", "cable", "cadet", "camel", "canal", "candy", "caper", "cargo", "carry", "carve", "caste", "catch", "catty", "cause", "cease", "cedar", "cello", "chain", "chair", "chalk", "charm", "chart", "chase", "cheap", "cheat", "check", "chest", "chief", "child", "chill", "china", "choir", "choke", "chord", "chunk", "churn", "cigar", "civic", "civil", "claim", "daily", "dairy", "dance", "dazed", "dealt", "death", "debut", "decoy", "delay", "delve", "denim", "dense", "depth", "derby", "deter", "devil", "diary", "diner", "dirge", "dirty", "disco", "ditch", "diver", "dizzy", "dodge", "dogma", "doing", "donor", "doubt", "dough", "drama", "drawn", "dream", "drink", "drove", "eager", "eagle", "early", "earth", "eased", "easel", "eaten", "eater", "edict", "eight", "eject", "elbow", "elder", "elect", "elite", "email", "embed", "ember", "empty", "enact", "ended", "endow", "enemy", "enjoy", "enter", "entry", "equal", "equip", "erase", "event", "fable", "facet", "fairy", "faith", "false", "fancy", "farce", "fatal", "fault", "fauna", "favor", "feast", "feign", "feral", "fetch", "fetal", "fever", "fiber", "field", "fiend", "filth", "final", "finch", "flank", "flash", "flask", "flick", "flock", "flood", "flora", "gable", "gamer", "gamma", "gaudy", "gauge", "gaunt", "gavel", "gelid", "ghost", "giant", "giddy", "given", "glade", "glass", "gleam", "globe", "gloom", "glory", "glove", "glued", "going", "grape", "grill", "habit", "hairy", "happy", "hardy", "harsh", "hasty", "hatch", "haven", "havoc", "hazel", "heady", "heart", "heavy", "hedge", "hefty", "heist", "hello", "hence", "hinge", "hoard", "hobby", "holly", "honey", "honor", "horse", "hound", "house", "hover", "humid", "icily", "icing", "ideal", "idiom", "idiot", "idler", "idyll", "igloo", "ignis", "image", "imbue", "impel", "imply", "incur", "index", "inept", "inert", "infer", "inlet", "inner", "jaded", "jaunt", "jazzy", "jelly", "jewel", "jiffy", "joint", "joker", "jolly", "judge", "juice", "jumbo", "jumpy", "junky", "karat", "kayak", "kebab", "khaki", "kiosk", "kitty", "knack", "knave", "knead", "knife", "knock", "known", "label", "labor", "laden", "ladle", "laity", "lance", "lanky", "lapse", "large", "laser", "latch", "later", "laugh", "layer", "leach", "leafy", "leaky", "learn", "lease", "legal", "lemon", "level", "lever", "light", "limbo", "macro", "magic", "magma", "maize", "major", "maker", "mango", "mania", "maple", "march", "marry", "marsh", "mason", "match", "matte", "maybe", "mayor", "mealy", "medal", "media", "merry", "metal", "meter", "metro", "midge", "midst", "might", "mimic", "mince", "minor", "minus", "mirth", "mixed", "model", "money", "nanny", "nasal", "nasty", "natal", "natch", "natty", "naval", "navel", "needy", "nerve", "never", "newel", "nexus", "niche", "niece", "night", "noble", "noise", "nylon", "oaken", "oasis", "ocean", "octal", "octet", "oddly", "offal", "offer", "often", "olden", "olive", "omega", "onion", "onset", "opera", "opine", "optic", "orbit", "order", "other", "paced", "pager", "paint", "paler", "palsy", "panel", "panic", "pansy", "paper", "parch", "parse", "party", "pasta", "paste", "patch", "patio", "patty", "pause", "peace", "peach", "pearl", "pecan", "pedal", "peril", "petal", "phase", "phone", "photo", "piano", "piece", "pilot", "pique", "pitch", "pivot", "pixel", "poppy", "quack", "quail", "qualm", "quirk", "queen", "radar", "radio", "rainy", "raise", "rally", "ranch", "range", "rapid", "raspy", "rated", "raven", "raver", "razor", "reach", "ready", "realm", "rearm", "rebel", "rebut", "recap", "recur", "refer", "route", "rover", "royal", "rugby", "rural", "rusty", "rutin", "sable", "sadly", "safes", "saint", "salad", "salsa", "salty", "samba", "sandy", "sassy", "satin", "sauce", "saucy", "sauna", "savvy", "scale", "scaly", "scare", "scene", "scent", "scout", "scrap", "scrub", "seedy", "seize", "shady", "shape", "sheaf", "sheep", "shelf", "shell", "shift", "shine", "shirt", "shone", "store", "tabby", "table", "tacit", "tacky", "taffy", "taint", "taken", "tally", "tango", "tangy", "tansy", "tapir", "tardy", "tarka", "taxis", "teach", "tease", "tempt", "tenet", "tense", "thank", "theft", "their", "there", "thick", "thief", "thing", "think", "third", "thong", "udder", "ultra", "umbra", "uncle", "under", "undue", "unfit", "unify", "unite", "upper", "vague", "valid", "valor", "value", "vapid", "vault", "vegan", "velar", "velum", "venue", "wacky", "wader", "wafer", "wager", "wagon", "waist", "waive", "waken", "waltz", "waste", "watch", "water", "waver", "weary", "wedge", "yearn", "yeast", "yield", "yodel", "young", "youth", "zappy", "zebra", "zesty"];
         let randomIndex = Math.floor(Math.random() * wordList.length);
-        let randomWord= wordList[randomIndex];
+        let randomWord = wordList[randomIndex];
+        
+        // Goes to the next letter after you type a letter
+        document.querySelectorAll('.letter').forEach((input, index) => {
+            input.addEventListener('input', function() {
+                if (this.value.length === 1 && index < 4) {
+                   document.getElementById("letter" + (index + 2)).focus();
+                }
+            });
+            
+            // Allow backspace to go to previous input
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
+                    document.getElementById("letter" + index).focus();
+                }
+            });
+        });
         
         document.getElementById("submit").addEventListener("click", function() {
-            let userInput = document.getElementById("letter1").value.toLowerCase();
-            let inputBox = document.getElementById("letter1");
+            let userGuess = '';
+            let correctCount = 0;
             
-            if (userInput === randomWord) {
-                inputBox.classList.add("correct");
-                inputBox.classList.remove("wrong");
-            } else {
-                inputBox.classList.remove("correct");
-                inputBox.classList.add("wrong");
+            // Collect letters from all 5 inputs
+            for (let i = 1; i <= 5; i++) {
+                userGuess += document.getElementById("letter" + i).value.toLowerCase();
+            }
+            
+            // Making sure there's all 5 letters filled out
+            if (userGuess.length !== 5) {
+                alert("Please enter all 5 letters!");
+                return;
+            }
+            
+            // Check each letter
+            for (let i = 0; i < 5; i++) {
+                let inputBox = document.getElementById("letter" + (i+1));
+                let letter = userGuess[i];
+                
+                if (letter === randomWord[i]) {
+                    // Correct letter in correct position
+                    inputBox.classList.add("correct");
+                    inputBox.classList.remove("wrong", "partial");
+                    correctCount++;
+                } else if (randomWord.includes(letter)) {
+                    // Correct letter in wrong position
+                    inputBox.classList.add("partial");
+                    inputBox.classList.remove("correct", "wrong");
+                } else {
+                    // Wrong letter
+                    inputBox.classList.add("wrong");
+                    inputBox.classList.remove("correct", "partial");
+                }
+            }
+            
+            // Check if the entire word is correct
+            if (correctCount === 5) {
+                document.getElementById('text').textContent = "You win! The word was: " + randomWord;
             }
         });
     </script>

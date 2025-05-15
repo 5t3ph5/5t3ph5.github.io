@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		input{
+			width:30px;
+			height:30px;
+			font-size:30px;
+		}
+	</style>
+</head>
+<body>
+
+	<input class="whatever"></input>
+	<input class="whatever"></input>
+	<input class="whatever"></input>
+	<input class="whatever"></input>
+	<input class="whatever"></input>
+	<button id="next">next letter</button>
+
+
+<script type="text/javascript">
+	
+	let something = Array.from(document.getElementsByClassName("whatever"))
+	console.log(something[0])
+
+next.addEventListener("click", function(){
+	something.forEach(function(x, y){
+		if(x.value.length==1){
+			// something[y].focus()
+			y=y+1
+		something[y].focus()
+			console.log(y) 
+			console.log(something[y])
+
+
+		}
+
+	}) // end of for each
+
+	}) //end of event listener
+</script>
+
+</body>
+</html>
